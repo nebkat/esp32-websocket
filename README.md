@@ -25,7 +25,7 @@ Any suggestions or fixes are gladly appreciated.
 Table of Contents
 =================
 * [Enumerations](#enumerations)
-  * [WEBSOCKET_TYPE_t](#enum-websocket_type_t)
+  * [websocket_type_t](#enum-websocket_type_t)
 * [Functions](#functions)
   * [ws_server_start](#int-ws_server_start)
   * [ws_server_stop](#int-ws_server_stop)
@@ -46,7 +46,7 @@ Table of Contents
 Enumerations
 ============
 
-enum WEBSOCKET_TYPE_t
+enum websocket_type_t
 ---------------------
 
 The different types of WebSocket events.
@@ -94,7 +94,7 @@ Adds a client to the WebSocket Server handler and performs the necessary handsha
   * `msg`: the entire incoming request message to join the server. Necessary for the handshake.
   * `len`: the length of `msg`.
   * `url`: the NULL-terminated url. Used to keep track of clients, not required.
-  * `callback`: the callback that is used to run WebSocket events. This must be with parameters(uint8_t num,WEBSOCKET_TYPE_t type,char* msg,uint64_t len) where "num" is the client number, "type" is the event type, "msg" is the incoming message, and "len" is the message length. The callback itself is optional.
+  * `callback`: the callback that is used to run WebSocket events. This must be with parameters(uint8_t num,websocket_type_t type,char* msg,uint64_t len) where "num" is the client number, "type" is the event type, "msg" is the incoming message, and "len" is the message length. The callback itself is optional.
 
 *Returns*
   * -2: not enough information in `msg` to perform handshake.
@@ -113,7 +113,7 @@ the specified protocol.
   * `len`: the length of `msg`.
   * `url`: the NULL-terminated url. Used to keep track of clients, not required.
   * `protocol`: the NULL-terminated protocol. This will be sent to the client in the header.
-  * `callback`: the callback that is used to run WebSocket events. This must be with parameters(uint8_t num,WEBSOCKET_TYPE_t type,char* msg,uint64_t len) where "num" is the client number, "type" is the event type, "msg" is the incoming message, and "len" is the message length. The callback itself is optional.
+  * `callback`: the callback that is used to run WebSocket events. This must be with parameters(uint8_t num,websocket_type_t type,char* msg,uint64_t len) where "num" is the client number, "type" is the event type, "msg" is the incoming message, and "len" is the message length. The callback itself is optional.
 
 *Returns*
   * -2: not enough information in `msg` to perform handshake.
